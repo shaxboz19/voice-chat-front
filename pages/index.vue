@@ -87,7 +87,7 @@
                   <span v-if="item.isPause">
                     <svgicon
                       name="pause"
-                      color="#42b983 #35495e"
+                      color="#2675EC"
                       width="35px"
                       @click="pauseAudio(index, item)"
                     ></svgicon>
@@ -95,7 +95,7 @@
                   <span v-else>
                     <svgicon
                       name="play"
-                      color="#42b983 #35495e"
+                      color="#2675EC"
                       width="35px"
                       @click="playAudio(index, item)"
                     ></svgicon>
@@ -105,6 +105,12 @@
                   ref="audio"
                   :audio-src="item.url"
                   :canv-width="300"
+                  played-line-color="#fff"
+                  :played-line-width="2"
+                  :played-line-height="20"
+                  noplayed-line-color="#eef1f2"
+                  :playtime-slider="false"
+                  playtime-slider-color="#2675EC"
                 ></av-waveform>
                 <span class="msg_time">{{ item.createAt | formatDate }}</span>
               </div>
@@ -113,7 +119,7 @@
           <div class="card-footer">
             <div class="input-group footer-input">
               <div class="microphone" @mousedown="recordAudio" @mouseup="stop">
-                <svgicon name="microphone" color="#42b983 #35495e"></svgicon>
+                <svgicon name="record" color="#858E99"></svgicon>
               </div>
               <div class="timer">
                 {{ timer | formatTime }}
